@@ -1,0 +1,42 @@
+public class SudokuPuzzleGenerator {
+
+    public static void main(String[] args) {
+        int[][] puzzle = new int[9][9];
+
+        int[] row1 = {1,2,3,4,5,6,7,8,9};
+
+        numbers(puzzle, row1);
+        printing(puzzle);
+    }
+
+
+    public static void numbers(int[][] puzzle, int[] row1) {
+        for (int row = 0; row<9; row++) {
+            for (int column = 0; column<9; column++) {
+                int index = (row*3 + row/3 + column)%9;
+                puzzle[row][column] = row1[index];
+            }
+        }
+    }
+
+
+    public static void printing(int[][] board) {
+        for (int row = 0; row<9; row++) {
+
+            if ((row%3 == 0) && (row!=0)) {
+                System.out.println("------+-------+------");
+            }
+
+            for (int column = 0; column<9; column++) {
+
+                if ((column%3 == 0) && (column != 0)) {
+                    System.out.print("| ");
+                }
+
+                System.out.print(board[row][column]+" ");
+            }
+
+            System.out.println();
+        }
+    }
+}
