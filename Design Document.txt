@@ -1,0 +1,27 @@
+﻿Julius Lema
+APCSA
+
+
+1. Program Overview
+My program creates a fully solved Sudoku board. By fully solved, it means that no two of the same number are in the same row, column, or box. At the same time, each row, column, and box contains one of each number. 
+
+
+2. The array is used to contain the first row. This is used for the rest of the board as the program goes back to the array to find what number should be used next in the Sudoku board. The 2D array creates the rows and columns for the rest of the board. This is then used for the positions for the rest of the numbers by placing each number in its proper row and column while not placing two numbers in the same row, column, or box. 
+
+
+3. The program creates the Sudoku board using the indices of the numbers and going back to the 1D array to find the number from the first row to put in the proper row and column. By using for loops, the program goes through each row and column and then sets each place to the correct number. By using a formula to find the proper index, it goes through each column one at a time, and then goes through each row one at a time. The formula calculates the index that then goes back to the 1D array. 
+
+
+4. There are 3 methods total:
+   1. Main Method: The main method creates the 2D array puzzles (a 9x9). It then creates the row1 array that is used for the rest of the puzzle using Math.random() to generate a random set for the row1. It uses the check method to make sure none of the numbers are the same. Next, it calls the numbers method to set each place in the rest of the board to the proper number. Lastly, it calls the printing method to print out the board and all the numbers. 
+   2. Check method: The check method is a helper method that is used to check to make sure that none of the numbers are the same in the first row. As each number is set in the main method, it calls the check method to ensure that none of the numbers in row1 are the same. By using recursion, it makes sure that if it has to set a place to a new number, it doesn’t set it to another already existing number. 
+   3. Numbers method: The numbers method is used to set all the numbers to the proper rows and columns using their indices and the array from the main method. Using a nested loop, it goes through each column in each row one at a time until all the places are filled. Using a formula, it uses the row and column to calculate the index of the number that the place will be set to front the row1 array. Lastly, it sets that place to the number from the row1 array. 
+   4. Printing method: The printing method is used to print out the Sudoku puzzle board. Similar to the numbers method, the printing method uses a nested loop to go through each column in each row to print out the number in the corresponding row and column. Once it gets to every third row and column, it prints a “-” or “|” to separate the boxes, making the board more readable. It also prints a “+” at the intersections. 
+
+
+5. I tested my program in a few different ways to make sure that it was working properly. My first check came when making the 1D array. Because I had to make sure that the row1 was random, I had to use something to check to make sure none of the numbers were the same. This eventually led to the check helper method that allowed me to create a proper first row.
+The second check came after creating the numbers method. I made a simple printing method that would just tell me where the numbers would go so I could make sure that the board was solving properly and with no two of the same numbers printing in the same row, column, or box. I didn’t have very much formatting, just enough to tell that the puzzle was putting the numbers in the correct spots. I was able to make sure that the code was printing different randomized boards each time and make sure they were proper. 
+The third check came during and after finishing the printing method. As I added the different parts to make the board readable, I had to make sure that the board was printing correctly. I did this after each new formatting part (the lines separating the rows, columns, and the “+” at the intersections). 
+
+
+6. One problem I faced was when making something to make sure that the randomness was working properly with none of the numbers being used twice in the first row. I tried using for and while loops in the main method while setting all the numbers to the proper values. Unfortunately, I wasn’t able to get it to work properly. It would either have duplicates or turn into an infinite loop (or was just so inefficient that I couldn’t tell). By implementing recursion, I was able to fix the problem with no more issues.
